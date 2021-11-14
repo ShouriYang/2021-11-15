@@ -1,0 +1,48 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <!-- This is to change the style of hyperlink -->
+    <style>
+        a:link {
+          color: pink;
+          background-color: transparent;
+          text-decoration: none;
+        }
+        a:visited {
+          color: rgb(231, 213, 216);
+          background-color: transparent;
+          text-decoration: none;
+        }
+        a:hover {
+          color: red;
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        a:active {
+          color: yellow;
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        </style>
+</head>
+
+<body>
+    <a href="/"style="font-size: 25px; font-weight:bold">&lt;&lt;Home</a>
+    </br>
+    </br>
+    <form method="post" action="/newBook">
+        Title:
+        <input type="text" name="title" list="titlelist">
+        <datalist id="titlelist">
+            　　<option>Dimond</option>
+            　　<option>vertical</option>
+        </datalist>
+        Author:
+        <input type="text" name="author">
+        Topic:
+        <input type="text" name="topic">
+        Cost:
+        <input type="number" name="cost">
+        <button>Submit</button>
+    </form>
+
+</body>

@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <!-- This is to change the style of hyperlink -->
+        <style>
+            body {background-image: url('logo.png');background-repeat: no-repeat;}
+            a:link {
+              color: pink;
+              background-color: transparent;
+              text-decoration: none;
+            }
+            a:visited {
+              color: rgb(231, 213, 216);
+              background-color: transparent;
+              text-decoration: none;
+            }
+            a:hover {
+              color: red;
+              background-color: transparent;
+              text-decoration: underline;
+            }
+            a:active {
+              color: yellow;
+              background-color: transparent;
+              text-decoration: underline;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Delete All Books By A Topic</h1>
+        <h2>
+            <a href="/">Add new book</a></br>
+            <a href="/getallbooks">Get All Books</a></br>
+            <a href="/deletebytopic">Delete All Books By A Topic</a></br>
+            <a href="/update">Update Book By Title</a></br>
+            <a href="/extratask">Books that publiced between 27/08/2020 to 27/08/2021</a></br>
+        </h2>
+        <form action="/deletebytopic" method="POST">
+            Topic <input type="text"  name="topic" />
+            <input type="submit" value="Submit" />
+        </form>
+    </body>
+</html>

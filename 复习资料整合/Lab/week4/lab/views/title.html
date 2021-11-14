@@ -1,0 +1,38 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <!-- This is to change the style of hyperlink -->
+    <style>
+        a:link {
+            color: rgb(231, 213, 216);
+          background-color: transparent;
+          text-decoration: none;
+        }
+        a:visited {
+          color: rgb(231, 213, 216);
+          background-color: transparent;
+          text-decoration: none;
+        }
+        a:hover {
+          color: red;
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        a:active {
+          color: yellow;
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        </style>
+</head>
+
+
+<body>
+    <a href="/" style="font-size: 25px; font-weight:bold">&lt;&lt;Home</a>
+    <h1 style= "color: black; font-weight: bold; font-size: 35px;">The title is below</h1>
+    <% for (let i=0; i<bookDb.length; i++) {  %>
+        <h2>
+            <%= (i+1)+"." %>
+            <%= bookDb[i].title%>
+        </h2>
+    <% } %>
+</body>

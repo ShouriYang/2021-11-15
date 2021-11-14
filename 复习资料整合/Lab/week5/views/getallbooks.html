@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <style>
+            table, th, td {
+                border: 3px solid rgb(26, 1, 1);
+            }
+        </style>
+
+        
+        <link rel="stylesheet" href="style.css">
+        <!-- This is to change the style of hyperlink -->
+        <style>
+            body {background-image: url('logo.png');}
+            a:link {
+            color: pink;
+            background-color: transparent;
+            text-decoration: none;
+            }
+            a:visited {
+            color: rgb(231, 213, 216);
+            background-color: transparent;
+            text-decoration: none;
+            }
+            a:hover {
+            color: red;
+            background-color: transparent;
+            text-decoration: underline;
+            }
+            a:active {
+            color: yellow;
+            background-color: transparent;
+            text-decoration: underline;
+            }
+        </style>
+        
+    </head>
+
+
+    <body>
+        <h1>Get All Books</h1>
+        <h2>
+            <a href="/">Add new book</a></br>
+            <a href="/getallbooks">Get All Books</a></br>
+            <a href="/deletebytopic">Delete All Books By A Topic</a></br>
+            <a href="/update">Update Book By Title</a></br>
+            <a href="/extratask">Books that publiced between 27/08/2020 to 27/08/2021</a></br>
+        </h2>
+
+        <table>
+            <tr>
+                <td>Title</td>
+                <td>Author</td>
+                <td>Topic</td>
+                <td>DateOfPublication</td>
+                <td>Summary</td>
+            </tr>
+            <tr>
+                <%for (let i=0; i<db.length; i++) { %>
+                    <tr>
+                        <td><%= db[i].title %></td>
+                        <td><%= db[i].author %></td>
+                        <td><%= db[i].topic %></td>
+                        <td><%= db[i].date %></td>
+                        <td><%= db[i].summary %></td>
+                    </tr>
+                <%}%>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <!-- This is to change the style of hyperlink -->
+    <style>
+        a:link {
+            color: rgb(231, 213, 216);
+          background-color: transparent;
+          text-decoration: none;
+        }
+        a:visited {
+          color: rgb(231, 213, 216);
+          background-color: transparent;
+          text-decoration: none;
+        }
+        a:hover {
+          color: red;
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        a:active {
+          color: yellow;
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        </style>
+</head>
+
+
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/" style="font-size: 25px; font-weight:bold">&lt;&lt;Home</a>
+    </br>
+    <h1>Hi <%= name %> This is FIT2095 Bookstore Database</h1>
+    </br>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Topic</th>
+            <th>Cost</th>
+        </tr>
+        <% for (let i=0; i<bookDb.length; i++) { %>
+            <tr>
+                <td>
+                    <%= bookDb[i].title %>
+                </td>
+                <td>
+                    <%= bookDb[i].author %>
+                </td>
+                <td>
+                    <%= bookDb[i].topic %>
+                </td>
+                <td>
+                    <%= bookDb[i].cost %>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+</body>

@@ -1,0 +1,117 @@
+<!-- we need firstly immport the FormsModue and add it to the NgModule's imports list -->
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<!-- First Name -->
+<div class="form-row">
+  <div class="form-group col-2">
+    <label for="inputFirstName">First Name</label>
+    <input [(ngModel)]="docFirstName" class="form-control" type="text" id="inputFirstName" placeholder="First Name"/>
+  </div>
+</div>
+
+<!-- Last Name -->
+<div class="form-row">
+  <div class="form-group col-2">
+    <label for="inputLastName">Last Name</label>
+    <input [(ngModel)]="docLastName" class="form-control" type="text" id="inputLastName" placeholder="Last Name"/>
+  </div>
+</div>
+
+<!-- DOB -->
+<div class="form-row">
+  <div class="form-group col-2">
+    <label for="inputDOB">Date Of Birth</label>
+    <input [(ngModel)]="docDOB" class="form-control" type="date" id="inputDOB"/>
+  </div>
+</div>
+
+<!-- Address -->
+<div class="form-row">
+  <!-- Suburb -->
+  <div class="form-group col-2">
+    <label for="inputSuburb">Suburb</label>
+    <input [(ngModel)]="suburb" class="form-control" type="text" placeholder="First Name" id="inputSuburb"/>
+  </div>
+  <!-- State -->
+  <div class="form-group col-2">
+    <label for="inputState">State</label>
+    <select [(ngModel)]="state" class="form-control" id="inputState">
+      <option>Choose...</option>
+      <option>ACT</option>
+      <option>NSW</option>
+      <option>NT</option>
+      <option>QLD</option>
+      <option>SA</option>
+      <option>TAS</option>
+      <option>WA</option>
+      <option>VIC</option>
+    </select>
+  </div>
+  <!-- Post Code -->
+  <div class="form-group col-2">
+    <label for="inputPostCode">Post Code</label>
+    <input [(ngModel)]="postcode" class="form-control" type="text" value="0" id="inputPostCode"/>
+  </div>
+</div>
+
+<!-- Number of Patients -->
+  <div class="form-group form-row">
+    <div class="col-2">
+      <label for="inputNumberOfPatients">Number of Patients</label>
+      <input [(ngModel)]="numberOfPatients" class="form-control" type="number" value=0 id="inputNumberOfPatients"/>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <!-- Button to Add Doctor & Delete Doctors -->
+    <div class="col-1">
+      <button type="button" class="btn btn-primary" (click)="addDoctor()">Add Doctor 
+        <span class="badge badge-pill badge-success">{{db.length}}</span>
+      </button>
+    </div>
+
+    <!-- when there is at least one doctor with 0 paitient -->
+    <div class="col-1">
+      <div *ngIf="doctorsWithoutPaitient_Count>0">
+        <button type="button" class="btn btn-warning" (click)="deleteDoctorWithoutPaitient()">Delete Doctors without Patients
+          <span class="badge badge-danger">{{doctorsWithoutPaitient_Count}}</span>
+        </button>
+      </div>
+    <!-- when there is no doctor with 0 paitient, disable the button-->
+    <div *ngIf="doctorsWithoutPaitient_Count===0">
+      <button type="button" class="btn btn-warning" disabled>Delete Doctors without Patients
+        <span class="badge badge-danger">{{doctorsWithoutPaitient_Count}}</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<br>
+<table class="table table-striped">
+  <tr>
+    <th> # </th>
+    <th> First Name </th>
+    <th> Last Name </th>
+    <th> Date Of Birth </th>
+    <th> Address</th>
+    <th> Number of Patients </th>
+    <th> Delete? </th>
+    <th> Add Patient? </th>
+  </tr>
+
+  <tbody>
+    <tr *ngFor="let doc of db; let i = index">
+      <td>{{i+1}}</td>
+      <td>{{doc.firstName}}</td>
+      <td>{{doc.lastName}}</td>
+      <td>{{doc.dob}}</td>
+      <td>{{doc.address.suburb+", "+doc.address.state+", "+doc.address.postcode}}</td>
+      <td>{{doc.numberOfPatients}}</td>
+      <td><button class="btn btn-danger btn-sm" (click)="deleteDoctorById(doc.id)">X</button></td>
+      <td><button class="btn btn-primary btn-sm" (click)="increasingPatientNumber(doc.id)">Add</button></td>
+    </tr>
+  </tbody>
+
+</table>
